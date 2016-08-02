@@ -9,7 +9,8 @@
 * Heroku Integration
 * Dummy Components
 
-
+________________________
+## Some info from 'create-react-app' the very basic tool I used to build the starter code
 
 Below you will find some information on how to perform common tasks.  
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/template/README.md).
