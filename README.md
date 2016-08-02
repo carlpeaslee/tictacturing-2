@@ -1,3 +1,16 @@
+
+## Version Goals
+
+### v.0.1
+
+*Redux Store
+*Wireframe (for v.1.0)
+*User Stories (for v.1.0)
+*Heroku Integration
+*Dummy Components
+
+
+
 Below you will find some information on how to perform common tasks.  
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/template/README.md).
 
