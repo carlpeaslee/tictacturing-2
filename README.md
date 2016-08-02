@@ -12,11 +12,11 @@
 
 ### v.0.1
 
-* Redux Store
-* Wireframe (for v.1.0)
-* User Stories (for v.1.0)
-* Heroku Integration
-* Dummy Components
+* Implement a Redux Store
+* Build a Wireframe (for v.1.0)
+* Write User Stories (for v.1.0)
+* Implement Heroku Integration
+* Build out Dummy Components
 
 
 
