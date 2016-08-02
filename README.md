@@ -1,6 +1,15 @@
 
 ## Version Goals
 
+### Long Term Tasks
+
+* styling (maybe Radium? http://formidable.com/open-source/radium/)
+* server-side rendering
+* persistent data storage (maybe rethinkdb)
+* build a graphQL server?
+* figure out google's AI api
+* set more versioning goals
+
 ### v.0.1
 
 * Redux Store
@@ -8,6 +17,18 @@
 * User Stories (for v.1.0)
 * Heroku Integration
 * Dummy Components
+
+
+
+
+
+
+
+
+
+
+
+
 
 ________________________
 ## Some info from 'create-react-app' the very basic tool I used to build the starter code
