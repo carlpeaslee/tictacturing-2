@@ -3,11 +3,11 @@
 
 ### v.0.1
 
-*Redux Store
-*Wireframe (for v.1.0)
-*User Stories (for v.1.0)
-*Heroku Integration
-*Dummy Components
+* Redux Store
+* Wireframe (for v.1.0)
+* User Stories (for v.1.0)
+* Heroku Integration
+* Dummy Components
 
 
 
