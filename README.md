@@ -1,3 +1,38 @@
+
+## Version Goals
+
+### Long Term Tasks
+
+* styling (maybe Radium? http://formidable.com/open-source/radium/)
+* server-side rendering
+* persistent data storage (maybe rethinkdb)
+* build a graphQL server?
+* figure out google's AI api
+* set more versioning goals
+
+### v.0.1
+
+* Implement a Redux Store
+* Build a Wireframe (for v.1.0)
+* Write User Stories (for v.1.0)
+* Implement Heroku Integration
+* Build out Dummy Components
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________
+## Some info from 'create-react-app' the very basic tool I used to build the starter code
+
 Below you will find some information on how to perform common tasks.  
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/template/README.md).
 
