@@ -1,4 +1,4 @@
-import {TICTAC_MOVE} from './actions';
+import {TICTAC_MOVE} from './actions'
 
 export function reducer(state, action) {
   switch (action.type) {

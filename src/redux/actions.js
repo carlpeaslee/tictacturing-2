@@ -8,5 +8,5 @@ export function makeTicTacMove(position) {
   return {
     type: TICTAC_MOVE,
     position
-  };
+  }
 }

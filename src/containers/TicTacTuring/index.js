@@ -1,3 +1,3 @@
-import TicTacTuring from './TicTacTuring';
+import TicTacTuring from './TicTacTuring'
 
-export {TicTacTuring};
+export {TicTacTuring}

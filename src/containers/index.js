@@ -1,4 +1,4 @@
-import {App} from './App';
-import {TicTacTuring} from './TicTacTuring';
+import {App} from './App'
+import {TicTacTuring} from './TicTacTuring'
 
-export {App, TicTacTuring};
+export {App, TicTacTuring}

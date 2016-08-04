@@ -1,5 +1,5 @@
-import { createStore } from 'redux';
-import {reducer} from './reducer';
+import { createStore } from 'redux'
+import {reducer} from './reducer'
 
 const INITIAL_STATE = {
   tictacboard: []
@@ -12,4 +12,4 @@ let store = createStore(
   window.devToolsExtension ? window.devToolsExtension(): undefined
 );
 
-export default store;
+export default store

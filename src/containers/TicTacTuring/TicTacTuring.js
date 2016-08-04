@@ -29,7 +29,7 @@ class Board extends Component {
           <Col md={2}>-</Col>
         </Row>
       </div>
-    );
+    )
   }
 }
 
