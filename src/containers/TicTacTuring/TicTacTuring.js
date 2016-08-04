@@ -2,33 +2,38 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {Row, Col} from 'react-bootstrap'
 import {makeTicTacMove} from '../../redux/actions'
+import TicTacToeSquare from '../../components/TicTacToe/TicTacToeSquare'
+
 
 class Board extends Component {
   render() {
-    const handleSquareClick = (position) => {
-      this.props.onSquareClick(Object.keys(position)[0])
-    }
     return (
-      <div>
-        <Row>
-          <Col md={2} mdOffset={4}
-            onClick={() => handleSquareClick(this.refs)}
-            ref={"TOP_LEFT"}
-          >-</Col>
-          <Col md={2}>-</Col>
-          <Col md={2}>-</Col>
-        </Row>
-        <Row>
-          <Col md={2} mdOffset={4}>-</Col>
-          <Col md={2}>-</Col>
-          <Col md={2}>-</Col>
-        </Row>
-        <Row>
-          <Col md={2} mdOffset={4}>-</Col>
-          <Col md={2}>-</Col>
-          <Col md={2}>-</Col>
-        </Row>
-      </div>
+      <Row>
+        <Col md={4} mdOffset={4}>
+          <Row>
+            <Col md={4}>
+              <TicTacToeSquare
+                position={"TOP_LEFT"}
+                onSquareClick={this.props.onSquareClick}
+              />
+            </Col>
+            <Col md={4}>
+              <TicTacToeSquare/>
+            </Col>
+            <Col md={4}>-</Col>
+          </Row>
+          <Row>
+            <Col md={4}>-</Col>
+            <Col md={4}>-</Col>
+            <Col md={4}>-</Col>
+          </Row>
+          <Row>
+            <Col md={4}>-</Col>
+            <Col md={4}>-</Col>
+            <Col md={4}>-</Col>
+          </Row>
+        </Col>
+      </Row>
     )
   }
 }

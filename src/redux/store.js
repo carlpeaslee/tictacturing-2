@@ -2,7 +2,17 @@ import { createStore } from 'redux'
 import {reducer} from './reducer'
 
 const INITIAL_STATE = {
-  tictacboard: []
+  tictacboard: {
+    topLeft: 'empty',
+    topMiddle: 'empty',
+    topRight: 'empty',
+    middleLeft: 'empty',
+    middleMiddle: 'empty',
+    middleRight: 'empty',
+    bottomLeft: 'empty',
+    bottomMiddle: 'empty',
+    bottomRight: 'empty'
+  }
 }
 
 
