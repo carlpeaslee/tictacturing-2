@@ -5,6 +5,7 @@
 
 * styling (maybe Radium? http://formidable.com/open-source/radium/)
 * server-side rendering
+* custom webpack configuration
 * persistent data storage (maybe rethinkdb)
 * build a graphQL server?
 * figure out google's AI api
@@ -12,7 +13,7 @@
 
 ### v.0.1
 
-* Implement a Redux Store
+~* Implement a Redux Store~
 * Build a Wireframe (for v.1.0)
 * Write User Stories (for v.1.0)
 * Implement Heroku Integration
@@ -290,7 +291,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 ```
 import React, { Component } from 'react';
 import { Navbar, Jumbotron, Button } from 'react-bootstrap';
-``` 
+```
 
 Now you are ready to use the imported React Bootstrap components within your component hierarchy defined in the render method. Here is an example [App.js](https://github.com/manavsehgal/react-eshop/blob/master/src/App.js) redone using React Bootstrap.
 
