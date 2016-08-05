@@ -3,9 +3,13 @@ import {TICTAC_MOVE} from './actions'
 export function reducer(state, action) {
   switch (action.type) {
     case TICTAC_MOVE: {
-      console.log('tictacmove')
+      let newBoard = {
+        ...state.tictacboard
+      }
+      newBoard[action.position] = state.playerMark
       return {
-        ...state
+        ...state,
+        tictacboard: newBoard
       }
     }
     default: {
