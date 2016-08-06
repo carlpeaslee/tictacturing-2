@@ -1,4 +1,4 @@
-import {TICTAC_MOVE, READY, START_GAME, RECEIVE_OPPONENT_MOVE} from './actions'
+import {TICTAC_MOVE, READY, START_GAME, RECEIVE_OPPONENT_MOVE, END_GAME} from './actions'
 
 export function reducer(state, action) {
   switch (action.type) {
@@ -34,6 +34,17 @@ export function reducer(state, action) {
       return {
         ...state,
         gameState: 'YOUR_TURN'
+      }
+    }
+    case END_GAME: {
+      return {
+        ...state,
+        gameState: 'GAME_OVER',
+        endGameState: {
+          winningPlayer: action.winningPlayer,
+          locationOfWin: action.locationOfWin
+        }
+
       }
     }
     default: {

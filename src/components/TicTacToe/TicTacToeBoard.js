@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import TicTacToeSquare from './TicTacToeSquare'
 import styles from '../../styles'
-
+import BoardDisplay from './BoardDisplay'
 
 class TicTacToeBoard extends Component {
   static propTypes = {
@@ -10,16 +10,9 @@ class TicTacToeBoard extends Component {
   }
   render() {
     return (
-      <div className={'board'} style={styles.board}>
-        <div style={styles.lines}>
-          <div className={'verticalLine'} style={styles.verticalLine}></div>
-          <div className={'verticalLine'} style={styles.verticalLine}></div>
-        </div>
-        <div style={styles.lines}>
-          <div className={'horizontalLine'} style={styles.horizontalLine}></div>
-          <div className={'horizontalLine'} style={styles.horizontalLine}></div>
-        </div>
-        <div>
+      <div>
+        <BoardDisplay/>
+        <div style={styles.board}>
           <TicTacToeSquare
             position={"TOP_LEFT"}
             onSquareClick={this.props.onSquareClick}

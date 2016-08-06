@@ -3,7 +3,9 @@ const styles = {
     height: '52vw',
     width: '51vw',
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    position: 'absolute',
+    overflow: 'hidden'
   },
   lines: {
     position: 'absolute'

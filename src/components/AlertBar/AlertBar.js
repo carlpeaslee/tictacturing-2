@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import styles from '../../styles'
-import ai from '../../ai'
 import {Row, Col} from 'react-bootstrap'
+import store from '../../redux/store'
 
 
 class AlertBar extends Component {
@@ -16,26 +16,25 @@ class AlertBar extends Component {
       switch (this.props.gameState) {
         case 'FINDING_OPPONENT': {
           message = "searching for an opponent..."
-          setTimeout(
-            this.props.dispatchStart,
-            2000
-          )
           return {
             message
           }
         }
         case 'OPPONENT_TURN': {
           message = "waiting for opponent move..."
-          setTimeout(
-            ai,
-            2000
-          )
           return {
             message
           }
         }
         case 'YOUR_TURN': {
           message = "make your move"
+          return {
+            message
+          }
+        }
+        case 'GAME_OVER': {
+          let winner = store.getState().endGameState.winningPlayer
+          message = "game over: the " + winner + "'s won!"
           return {
             message
           }

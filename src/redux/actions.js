@@ -3,6 +3,7 @@ export const TICTAC_MOVE = 'TICTAC_MOVE'
 export const READY = 'READY'
 export const START_GAME = 'START_GAME'
 export const RECEIVE_OPPONENT_MOVE = 'RECEIVE_OPPONENT_MOVE'
+export const END_GAME = 'END_GAME'
 
 /* Action creators */
 
@@ -15,6 +16,7 @@ export function makeTicTacMove(position, mark) {
 }
 
 export function readyAction() {
+  console.log('readyran')
   return {
     type: READY
   }
@@ -30,5 +32,13 @@ export function receiveOpponentMove(position) {
   return {
     type: RECEIVE_OPPONENT_MOVE,
     position
+  }
+}
+
+export function endGame(winningPlayer, locationOfWin) {
+  return {
+    type: END_GAME,
+    winningPlayer,
+    locationOfWin
   }
 }
