@@ -6,10 +6,11 @@ export const RECEIVE_OPPONENT_MOVE = 'RECEIVE_OPPONENT_MOVE'
 
 /* Action creators */
 
-export function makeTicTacMove(position) {
+export function makeTicTacMove(position, mark) {
   return {
     type: TICTAC_MOVE,
-    position
+    position,
+    mark
   }
 }
 

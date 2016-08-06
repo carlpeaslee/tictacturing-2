@@ -26,9 +26,9 @@ class TicTacToeBoard extends Component {
             mark={this.props.tictacboard.TOP_LEFT}
           />
           <TicTacToeSquare
-            position={"TOP_MIDDLE"}
+            position={"TOP_CENTER"}
             onSquareClick={this.props.onSquareClick}
-            mark={this.props.tictacboard.TOP_MIDDLE}
+            mark={this.props.tictacboard.TOP_CENTER}
           />
           <TicTacToeSquare
             position={"TOP_RIGHT"}
@@ -38,36 +38,36 @@ class TicTacToeBoard extends Component {
         </div>
         <div>
           <TicTacToeSquare
-            position={"MIDDLE_LEFT"}
+            position={"MID_LEFT"}
             onSquareClick={this.props.onSquareClick}
-            mark={this.props.tictacboard.MIDDLE_LEFT}
+            mark={this.props.tictacboard.MID_LEFT}
           />
           <TicTacToeSquare
-            position={"MIDDLE_MIDDLE"}
+            position={"MID_CENTER"}
             onSquareClick={this.props.onSquareClick}
-            mark={this.props.tictacboard.MIDDLE_MIDDLE}
+            mark={this.props.tictacboard.MID_CENTER}
           />
           <TicTacToeSquare
-            position={"MIDDLE_RIGHT"}
+            position={"MID_RIGHT"}
             onSquareClick={this.props.onSquareClick}
-            mark={this.props.tictacboard.MIDDLE_RIGHT}
+            mark={this.props.tictacboard.MID_RIGHT}
           />
         </div>
         <div>
           <TicTacToeSquare
-            position={"BOTTOM_LEFT"}
+            position={"BOT_LEFT"}
             onSquareClick={this.props.onSquareClick}
-            mark={this.props.tictacboard.BOTTOM_LEFT}
+            mark={this.props.tictacboard.BOT_LEFT}
           />
           <TicTacToeSquare
-            position={"BOTTOM_MIDDLE"}
+            position={"BOT_CENTER"}
             onSquareClick={this.props.onSquareClick}
-            mark={this.props.tictacboard.BOTTOM_MIDDLE}
+            mark={this.props.tictacboard.BOT_CENTER}
           />
           <TicTacToeSquare
-            position={"BOTTOM_RIGHT"}
+            position={"BOT_RIGHT"}
             onSquareClick={this.props.onSquareClick}
-            mark={this.props.tictacboard.BOTTOM_RIGHT}
+            mark={this.props.tictacboard.BOT_RIGHT}
           />
         </div>
       </div>

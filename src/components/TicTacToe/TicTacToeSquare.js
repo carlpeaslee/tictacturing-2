@@ -9,14 +9,18 @@ class TicTacToeSquare extends Component {
     mark: PropTypes.string.isRequired,
   }
   render(){
-    const handleSquareClick = (position) => {
-      this.props.onSquareClick(position)
+    const handleSquareClick = () => {
+      let position = this.props.position
+      let mark = store.getState().playerMark
+      this.props.onSquareClick(position, mark)
     }
     return (
       <div
         onClick={
           store.getState().gameState === 'YOUR_TURN' ?
-            () => handleSquareClick(this.props.position) : null
+            () => handleSquareClick()
+            :
+            null
         }
         style={this.props.mark === 'EMPTY' ? {...styles.square, ...styles.white} : styles.square}
       >

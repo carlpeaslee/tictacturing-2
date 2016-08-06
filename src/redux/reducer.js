@@ -6,7 +6,7 @@ export function reducer(state, action) {
       let newBoard = {
         ...state.tictacboard
       }
-      newBoard[action.position] = state.playerMark
+      newBoard[action.position] = action.mark
       return {
         ...state,
         tictacboard: newBoard,

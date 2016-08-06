@@ -4,14 +4,14 @@ import {reducer} from './reducer'
 const INITIAL_STATE = {
   tictacboard: {
     TOP_LEFT: 'EMPTY',
-    TOP_MIDDLE: 'EMPTY',
+    TOP_CENTER: 'EMPTY',
     TOP_RIGHT: 'EMPTY',
-    MIDDLE_LEFT: 'EMPTY',
-    MIDDLE_MIDDLE: 'EMPTY',
-    MIDDLE_RIGHT: 'EMPTY',
-    BOTTOM_LEFT: 'EMPTY',
-    BOTTOM_MIDDLE: 'EMPTY',
-    BOTTOM_RIGHT: 'EMPTY'
+    MID_LEFT: 'EMPTY',
+    MID_CENTER: 'EMPTY',
+    MID_RIGHT: 'EMPTY',
+    BOT_LEFT: 'EMPTY',
+    BOT_CENTER: 'EMPTY',
+    BOT_RIGHT: 'EMPTY'
   },
   gameState: 'WELCOME',
   playerMark: 'X'

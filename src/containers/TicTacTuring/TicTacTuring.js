@@ -4,6 +4,8 @@ import {makeTicTacMove, readyAction, startGame} from '../../redux/actions'
 import TicTacToeBoard from '../../components/TicTacToe/TicTacToeBoard'
 import AlertBar from '../../components/AlertBar/AlertBar'
 import Prompts from '../../components/Prompts/Prompts'
+import store from '../../redux/store'
+import winChecker from '../../components/TicTacToe/gameLogic'
 
 class TicTacTuring extends Component {
   static propTypes = {
@@ -14,6 +16,7 @@ class TicTacTuring extends Component {
     dispatchStart: PropTypes.func.isRequired
   }
   render() {
+    winChecker(store)
     return (
       <div>
         <Prompts
@@ -43,8 +46,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSquareClick: (position) => {
-      dispatch(makeTicTacMove(position))
+    onSquareClick: (position, mark) => {
+      dispatch(makeTicTacMove(position, mark))
     },
     onReadyClick: () => {
       dispatch(readyAction())

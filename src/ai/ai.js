@@ -8,13 +8,14 @@ function getRandomInt(min, max) {
 
 function ai () {
   let possibleMoves = []
-  const shit = store.getState()
-  for (let poop in shit.tictacboard) {
-    if (shit.tictacboard[poop] === 'EMPTY') {
-      possibleMoves.push(poop)
+  let state = store.getState()
+  for (let squares in state.tictacboard) {
+    if (state.tictacboard[squares] === 'EMPTY') {
+      possibleMoves.push(squares)
     }
   }
-  const move = possibleMoves[getRandomInt(0, possibleMoves.length)]
+  let move = possibleMoves[getRandomInt(0, possibleMoves.length - 1)]
+  console.log('ai move:', move)
   store.dispatch(receiveOpponentMove(move))
 }
 
