@@ -60,8 +60,11 @@ const styles = {
     WELCOME: {
       background: 'pink'
     },
+    FINDING_OPPONENT: {
+      background: 'teal'
+    },
     YOUR_TURN: {
-      background: 'blue'
+      background: 'green'
     },
     theirTurn: {
 

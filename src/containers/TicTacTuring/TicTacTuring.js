@@ -1,84 +1,33 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import {makeTicTacMove} from '../../redux/actions'
-import TicTacToeSquare from '../../components/TicTacToe/TicTacToeSquare'
+import {makeTicTacMove, readyAction, startGame} from '../../redux/actions'
+import TicTacToeBoard from '../../components/TicTacToe/TicTacToeBoard'
 import AlertBar from '../../components/AlertBar/AlertBar'
-import styles from '../../styles'
+import Prompts from '../../components/Prompts/Prompts'
 
-
-class Board extends Component {
+class TicTacTuring extends Component {
   static propTypes = {
     tictacboard: PropTypes.object.isRequired,
     onSquareClick: PropTypes.func.isRequired,
-    gameState: PropTypes.string.isRequired
+    gameState: PropTypes.string.isRequired,
+    onReadyClick: PropTypes.func.isRequired,
+    dispatchStart: PropTypes.func.isRequired
   }
   render() {
     return (
       <div>
+        <Prompts
+          gameState={this.props.gameState}
+          onReadyClick={this.props.onReadyClick}
+        />
         <AlertBar
           gameState={this.props.gameState}
+          dispatchStart={this.props.dispatchStart}
         />
-        <div className={'board'} style={styles.board}>
-          <div style={styles.lines}>
-            <div className={'verticalLine'} style={styles.verticalLine}></div>
-            <div className={'verticalLine'} style={styles.verticalLine}></div>
-          </div>
-          <div style={styles.lines}>
-            <div className={'horizontalLine'} style={styles.horizontalLine}></div>
-            <div className={'horizontalLine'} style={styles.horizontalLine}></div>
-          </div>
-          <div>
-            <TicTacToeSquare
-              position={"TOP_LEFT"}
-              onSquareClick={this.props.onSquareClick}
-              mark={this.props.tictacboard.TOP_LEFT}
-            />
-            <TicTacToeSquare
-              position={"TOP_MIDDLE"}
-              onSquareClick={this.props.onSquareClick}
-              mark={this.props.tictacboard.TOP_MIDDLE}
-            />
-            <TicTacToeSquare
-              position={"TOP_RIGHT"}
-              onSquareClick={this.props.onSquareClick}
-              mark={this.props.tictacboard.TOP_RIGHT}
-            />
-          </div>
-          <div>
-            <TicTacToeSquare
-              position={"MIDDLE_LEFT"}
-              onSquareClick={this.props.onSquareClick}
-              mark={this.props.tictacboard.MIDDLE_LEFT}
-            />
-            <TicTacToeSquare
-              position={"MIDDLE_MIDDLE"}
-              onSquareClick={this.props.onSquareClick}
-              mark={this.props.tictacboard.MIDDLE_MIDDLE}
-            />
-            <TicTacToeSquare
-              position={"MIDDLE_RIGHT"}
-              onSquareClick={this.props.onSquareClick}
-              mark={this.props.tictacboard.MIDDLE_RIGHT}
-            />
-          </div>
-          <div>
-            <TicTacToeSquare
-              position={"BOTTOM_LEFT"}
-              onSquareClick={this.props.onSquareClick}
-              mark={this.props.tictacboard.BOTTOM_LEFT}
-            />
-            <TicTacToeSquare
-              position={"BOTTOM_MIDDLE"}
-              onSquareClick={this.props.onSquareClick}
-              mark={this.props.tictacboard.BOTTOM_MIDDLE}
-            />
-            <TicTacToeSquare
-              position={"BOTTOM_RIGHT"}
-              onSquareClick={this.props.onSquareClick}
-              mark={this.props.tictacboard.BOTTOM_RIGHT}
-            />
-          </div>
-        </div>
+        <TicTacToeBoard
+          tictacboard={this.props.tictacboard}
+          onSquareClick={this.props.onSquareClick}
+        />
       </div>
     )
   }
@@ -96,13 +45,19 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onSquareClick: (position) => {
       dispatch(makeTicTacMove(position))
+    },
+    onReadyClick: () => {
+      dispatch(readyAction())
+    },
+    dispatchStart: () => {
+      dispatch(startGame())
     }
   }
 }
 
-const TicTacTuring = connect(
+TicTacTuring = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Board)
+)(TicTacTuring)
 
 export default TicTacTuring
