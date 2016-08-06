@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import styles from '../../styles'
+import store from '../../redux/store'
 
 class TicTacToeSquare extends Component {
   static propTypes = {
@@ -13,7 +14,10 @@ class TicTacToeSquare extends Component {
     }
     return (
       <div
-        onClick={() => handleSquareClick(this.props.position)}
+        onClick={
+          store.getState().gameState === 'YOUR_TURN' ?
+            () => handleSquareClick(this.props.position) : null
+        }
         style={this.props.mark === 'EMPTY' ? {...styles.square, ...styles.white} : styles.square}
       >
         {this.props.mark}
