@@ -3,17 +3,17 @@ import {reducer} from './reducer'
 
 const INITIAL_STATE = {
   tictacboard: {
-    TOP_LEFT: '-',
-    TOP_MIDDLE: '-',
-    TOP_RIGHT: '-',
-    MIDDLE_LEFT: '-',
-    MIDDLE_MIDDLE: '-',
-    MIDDLE_RIGHT: '-',
-    BOTTOM_LEFT: '-',
-    BOTTOM_MIDDLE: '-',
-    BOTTOM_RIGHT: '-'
+    TOP_LEFT: 'EMPTY',
+    TOP_MIDDLE: 'EMPTY',
+    TOP_RIGHT: 'EMPTY',
+    MIDDLE_LEFT: 'EMPTY',
+    MIDDLE_MIDDLE: 'EMPTY',
+    MIDDLE_RIGHT: 'EMPTY',
+    BOTTOM_LEFT: 'EMPTY',
+    BOTTOM_MIDDLE: 'EMPTY',
+    BOTTOM_RIGHT: 'EMPTY'
   },
-  currentTurn: 'X',
+  gameState: 'WELCOME',
   playerMark: 'X'
 }
 

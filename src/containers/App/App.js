@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Grid, Row, Col} from 'react-bootstrap'
 import {TicTacTuring} from '../TicTacTuring'
 import {GitHubButton} from '../../components'
-
+import Radium from 'radium'
 
 class App extends Component {
   render() {
@@ -18,5 +18,7 @@ class App extends Component {
     )
   }
 }
+// eslint-disable-next-line
+App = Radium(App)
 
 export default App
