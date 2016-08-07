@@ -2,9 +2,11 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import {makeTicTacMove, readyAction, startGame} from '../../redux/actions'
 import TicTacToeBoard from '../../components/TicTacToe/TicTacToeBoard'
+import BoardDisplay from '../../components/TicTacToe/BoardDisplay'
 import AlertBar from '../../components/AlertBar/AlertBar'
 import Prompts from '../../components/Prompts/Prompts'
 import {gameStateManager} from '../../components/TicTacToe/gameLogic'
+import {Row, Col} from 'react-bootstrap'
 
 class TicTacTuring extends Component {
   static propTypes = {
@@ -28,10 +30,15 @@ class TicTacTuring extends Component {
           gameState={this.props.gameState}
           dispatchStart={this.props.dispatchStart}
         />
-        <TicTacToeBoard
-          tictacboard={this.props.tictacboard}
-          onSquareClick={this.props.onSquareClick}
-        />
+        <Row>
+          <Col lg={6} lgOffset={2}>
+            <BoardDisplay/>
+            <TicTacToeBoard
+              tictacboard={this.props.tictacboard}
+              onSquareClick={this.props.onSquareClick}
+            />
+          </Col>
+        </Row>
       </div>
     )
   }

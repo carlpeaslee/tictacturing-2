@@ -1,8 +1,14 @@
 import React, {Component, PropTypes} from 'react'
 import styles from '../../styles'
 import {Row, Col} from 'react-bootstrap'
-import store from '../../redux/store'
 
+const ant = require('../TicTacToe/imgs/ant.png')
+const satellite = require('../TicTacToe/imgs/satellite.png')
+const stopwatch = require('../TicTacToe/imgs/stopwatch.png')
+const telescope = require('../TicTacToe/imgs/telescope.png')
+const empty = require('../TicTacToe/imgs/empty.png')
+const thumbsup = require('../TicTacToe/imgs/thumbsup.png')
+const person = require('../TicTacToe/imgs/person.png')
 
 class AlertBar extends Component {
   static propTypes = {
@@ -10,49 +16,42 @@ class AlertBar extends Component {
     dispatchStart: PropTypes.func.isRequired
   }
   render() {
-    const gameState = this.props.gameState
-    let message = ''
     const messageCreator = () => {
       switch (this.props.gameState) {
         case 'FINDING_OPPONENT': {
-          message = "searching for an opponent..."
-          return {
-            message
-          }
+          return (
+            <div>
+              <img src={ant} alt={'ant'}/>
+              <img src={telescope} alt={'telescope'}/>
+              <img src={satellite} alt={'satellite'}/>
+            </div>
+          )
         }
         case 'OPPONENT_TURN': {
-          message = "waiting for opponent move..."
-          return {
-            message
-          }
+          return (<img src={stopwatch} alt={'stopwatch'}/>
+          )
         }
         case 'YOUR_TURN': {
-          message = "make your move"
-          return {
-            message
-          }
+          return (
+            <div>
+              <img src={thumbsup} alt={'thumbsup'}/>
+              <img src={person} alt={'person'}/>
+            </div>
+          )
         }
         case 'GAME_OVER': {
-          let winner = store.getState().endGameState.winningPlayer
-          message = "game over: the " + winner + "'s won!"
-          return {
-            message
-          }
+          return (<img src={telescope} alt={'telescope'}/>)
         }
         default:
         case 'WELCOME': {
-          message = 'welcome to the game'
-          return {
-            message
-          }
+          return (<img src={empty} alt={'empty'}/>)
         }
       }
     }
-    messageCreator()
     return (
       <Row>
-        <Col style={{...styles.alertBar.basic, ...styles.alertBar[gameState]}}>
-          {message}
+        <Col style={styles.alertBar.basic}>
+         {messageCreator()}
         </Col>
       </Row>
     )

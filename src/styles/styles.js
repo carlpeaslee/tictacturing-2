@@ -1,32 +1,55 @@
 const styles = {
+  gitHubBar: {
+    position: 'absolute',
+    top: 0
+  },
   board: {
+    height: '52vw',
+    width: '51vw',
+    left: '16.5vw',
+    top: '0',
+    overflow: 'hidden',
+    position: 'absolute'
+  },
+  displayBoard: {
     height: '52vw',
     width: '51vw',
     marginLeft: 'auto',
     marginRight: 'auto',
-    position: 'absolute',
     overflow: 'hidden'
   },
   lines: {
     position: 'absolute'
   },
-  verticalLine: {
-    position: 'relative',
-    display: 'inline-block',
-    left: '.5vw',
-    marginLeft: '16vw',
+  leftVerticalLine: {
+    position: 'absolute',
+    left: '16.5vw',
     height: '52vw',
     width: '1vw',
     background: '#8A8A8A',
     zIndex: '2'
   },
-  horizontalLine: {
-    position: 'relative',
-    display: 'inline-block',
+  rightVerticalLine: {
+    position: 'absolute',
+    left: '33.5vw',
+    height: '52vw',
+    width: '1vw',
+    background: '#8A8A8A',
+    zIndex: '2'
+  },
+  topHorizontalLine: {
+    position: 'absolute',
     height: '1vw',
     width: '52vw',
-    top: '1vw',
-    marginTop: '15.5vw',
+    top: '16.5vw',
+    background: '#8A8A8A',
+    zIndex: '2'
+  },
+  botHorizontalLine: {
+    position: 'absolute',
+    height: '1vw',
+    width: '52vw',
+    top: '34vw',
     background: '#8A8A8A',
     zIndex: '2'
   },
@@ -41,12 +64,14 @@ const styles = {
     display: 'inline-block',
     margin: '.5vw',
     position: 'relative',
-    textAlign: 'center',
-    fontSize: '16vw',
-    lineHeight: '16vw'
   },
-  white: {
-    color: 'white'
+  centeredImage: {
+    margin: 'auto',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
   },
   alertBar: {
     basic: {
@@ -58,25 +83,15 @@ const styles = {
       fontSize: '2em',
       lineHeight: '2em',
       textAlign: 'center'
-    },
-    WELCOME: {
-      background: 'pink'
-    },
-    FINDING_OPPONENT: {
-      background: 'teal'
-    },
-    YOUR_TURN: {
-      background: 'green'
-    },
-    theirTurn: {
-
-    },
-    turingTest: {
-
-    },
-    limbo: {
-
     }
+  },
+  modalButton: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    position: 'relative',
+    display: 'block',
+    top: '15vw',
+    margin: 'auto'
   }
 }
 

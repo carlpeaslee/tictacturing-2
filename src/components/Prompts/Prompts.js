@@ -32,9 +32,7 @@ class Prompts extends Component {
             displayPrompt
           }
         }
-        default:
-        case 'YOUR_TURN':
-        case 'FINDING_OPPONENT': {
+        default: {
           displayPrompt = nothing()
           return {
             displayPrompt

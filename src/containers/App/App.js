@@ -3,13 +3,14 @@ import {Grid, Row, Col} from 'react-bootstrap'
 import {TicTacTuring} from '../TicTacTuring'
 import {GitHubButton} from '../../components'
 import Radium from 'radium'
+import styles from '../../styles'
 
 class App extends Component {
   render() {
     return (
       <Grid>
         <Row>
-          <Col md={1} mdOffset={11}>
+          <Col md={1} mdOffset={11} style={styles.gitHubBar}>
             <GitHubButton/>
           </Col>
         </Row>

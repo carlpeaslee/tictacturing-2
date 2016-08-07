@@ -2,6 +2,10 @@ import React, {Component, PropTypes} from 'react'
 import styles from '../../styles'
 import store from '../../redux/store'
 
+const xMark = require('./imgs/x.png')
+const oMark = require('./imgs/o.png')
+const emptyMark = require('./imgs/empty.png')
+
 class TicTacToeSquare extends Component {
   static propTypes = {
     position: PropTypes.string.isRequired,
@@ -14,6 +18,22 @@ class TicTacToeSquare extends Component {
       let mark = store.getState().playerMark
       this.props.onSquareClick(position, mark)
     }
+    const iconMark = () => {
+      if (this.props.mark === 'X') {
+        return (
+          <img src={xMark} alt={'X'} style={styles.centeredImage}/>
+        )
+      }
+      else if (this.props.mark === 'O') {
+        return (
+          <img src={oMark} alt={'O'} style={styles.centeredImage}/>
+        )
+      } else {
+        return (
+          <img src={emptyMark} alt={'empty'} style={styles.centeredImage}/>
+        )
+      }
+    }
     return (
       <div
         onClick={
@@ -22,9 +42,9 @@ class TicTacToeSquare extends Component {
             :
             null
         }
-        style={this.props.mark === 'EMPTY' ? {...styles.square, ...styles.white} : styles.square}
+        style={styles.square}
       >
-        {this.props.mark}
+        {iconMark()}
       </div>
     )
   }

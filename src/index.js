@@ -6,6 +6,7 @@ import store from './redux/store'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
+import './components/Prompts/modal.css'
 
 
 ReactDOM.render(
