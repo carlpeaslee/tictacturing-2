@@ -1,7 +1,7 @@
 
-## Current Version: v.0.2
+## Current Version: v.1.0
 
-url: https://serene-inlet-46272.herokuapp.com/
+[TicTacTuring.io](http://tictacturing.io)
 
 ## Version Goals
 
@@ -25,14 +25,14 @@ url: https://serene-inlet-46272.herokuapp.com/
 * ~~Build out Dummy Components~~
 
 ### v.0.3
-* tictactoe functionality for two people on one computer
-* add a github button
+* ~~tictactoe functionality for two people on one computer~~
+* ~~add a github button~~
 
 ### v.0.4
-* tictactoe functionality against a dumb bot
+* ~~tictactoe functionality against a dumb bot~~
 
 ### v.0.5
-* present the user with the turing choice
+* ~~present the user with the turing choice~~
 
 ### v.1.0
 * [Wireframe](https://collaborate.uxpin.com/c80f72eeabb8122153a5f34d797c83c5fae2a34b#/pages/56777247  "v.1.0 Wireframe")
