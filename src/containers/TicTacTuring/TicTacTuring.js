@@ -31,7 +31,7 @@ class TicTacTuring extends Component {
           dispatchStart={this.props.dispatchStart}
         />
         <Row>
-          <Col lg={6} lgOffset={2}>
+          <Col>
             <BoardDisplay/>
             <TicTacToeBoard
               tictacboard={this.props.tictacboard}

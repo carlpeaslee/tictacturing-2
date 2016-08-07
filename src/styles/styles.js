@@ -6,17 +6,12 @@ const styles = {
   board: {
     height: '52vw',
     width: '51vw',
-    left: '16.5vw',
-    top: '0',
+    left: 0,
+    right: 0,
+    margin: 'auto',
     overflow: 'hidden',
-    position: 'absolute'
-  },
-  displayBoard: {
-    height: '52vw',
-    width: '51vw',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    overflow: 'hidden'
+    position: 'absolute',
+    top: '10em'
   },
   lines: {
     position: 'absolute'
@@ -75,13 +70,11 @@ const styles = {
   },
   alertBar: {
     basic: {
+      left: 0,
+      right: 0,
+      margin: 'auto',
+      position: 'absolute',
       width: '50%',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      marginTop: '1em',
-      marginBottom: '1em',
-      fontSize: '2em',
-      lineHeight: '2em',
       textAlign: 'center'
     }
   },
