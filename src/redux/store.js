@@ -1,7 +1,7 @@
 import { createStore } from 'redux'
 import {reducer} from './reducer'
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   tictacboard: {
     TOP_LEFT: 'EMPTY',
     TOP_CENTER: 'EMPTY',
@@ -14,7 +14,11 @@ const INITIAL_STATE = {
     BOT_RIGHT: 'EMPTY'
   },
   gameState: 'WELCOME',
-  playerMark: 'X'
+  playerMark: 'X',
+  endGameState: {
+    winningPlayer: '',
+    locationOfWin: ''
+  }
 }
 
 

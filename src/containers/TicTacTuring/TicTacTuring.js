@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import {makeTicTacMove, readyAction, startGame} from '../../redux/actions'
+import {makeTicTacMove, readyAction, startGame, turingTest} from '../../redux/actions'
 import TicTacToeBoard from '../../components/TicTacToe/TicTacToeBoard'
 import BoardDisplay from '../../components/TicTacToe/BoardDisplay'
+import EndGameMarkers from '../../components/TicTacToe/EndGameMarkers'
 import AlertBar from '../../components/AlertBar/AlertBar'
 import Prompts from '../../components/Prompts/Prompts'
 import {gameStateManager} from '../../components/TicTacToe/gameLogic'
@@ -14,7 +15,9 @@ class TicTacTuring extends Component {
     onSquareClick: PropTypes.func.isRequired,
     gameState: PropTypes.string.isRequired,
     onReadyClick: PropTypes.func.isRequired,
-    dispatchStart: PropTypes.func.isRequired
+    dispatchStart: PropTypes.func.isRequired,
+    locationOfWin: PropTypes.string.isRequired,
+    turingTestClick: PropTypes.func.isRequired
   }
   componentDidUpdate () {
     gameStateManager()
@@ -25,6 +28,7 @@ class TicTacTuring extends Component {
         <Prompts
           gameState={this.props.gameState}
           onReadyClick={this.props.onReadyClick}
+          turingTestClick={this.props.turingTestClick}
         />
         <AlertBar
           gameState={this.props.gameState}
@@ -33,6 +37,9 @@ class TicTacTuring extends Component {
         <Row>
           <Col>
             <BoardDisplay/>
+            <EndGameMarkers
+              locationOfWin={this.props.locationOfWin}
+            />
             <TicTacToeBoard
               tictacboard={this.props.tictacboard}
               onSquareClick={this.props.onSquareClick}
@@ -48,7 +55,8 @@ class TicTacTuring extends Component {
 const mapStateToProps = (state) => {
   return {
     tictacboard: state.tictacboard,
-    gameState: state.gameState
+    gameState: state.gameState,
+    locationOfWin: state.endGameState.locationOfWin
   }
 }
 
@@ -62,7 +70,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     dispatchStart: () => {
       dispatch(startGame())
-    }
+    },
+    turingTestClick: (choice) => {
+      dispatch(turingTest(choice))
+    },
   }
 }
 

@@ -1,4 +1,5 @@
-import {TICTAC_MOVE, READY, START_GAME, RECEIVE_OPPONENT_MOVE, END_GAME} from './actions'
+import {TICTAC_MOVE, READY, START_GAME, RECEIVE_OPPONENT_MOVE, TURING_TEST, END_GAME} from './actions'
+import {INITIAL_STATE} from './store'
 
 export function reducer(state, action) {
   switch (action.type) {
@@ -45,6 +46,12 @@ export function reducer(state, action) {
           locationOfWin: action.locationOfWin
         }
 
+      }
+    }
+    case TURING_TEST: {
+      return {
+        ...INITIAL_STATE,
+        gameState: 'FINDING_OPPONENT'
       }
     }
     default: {

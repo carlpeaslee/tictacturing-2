@@ -34,10 +34,13 @@ class TicTacToeSquare extends Component {
         )
       }
     }
+
+    const gameState = store.getState().gameState
+
     return (
       <div
         onClick={
-          store.getState().gameState === 'YOUR_TURN' ?
+          gameState === 'YOUR_TURN' && this.props.mark === 'EMPTY' ?
             () => handleSquareClick()
             :
             null

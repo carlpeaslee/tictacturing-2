@@ -1,11 +1,10 @@
 const styles = {
   gitHubBar: {
-    position: 'absolute',
     top: 0
   },
   board: {
-    height: '52vw',
-    width: '51vw',
+    height: '52vh',
+    width: '51vh',
     left: 0,
     right: 0,
     margin: 'auto',
@@ -18,33 +17,33 @@ const styles = {
   },
   leftVerticalLine: {
     position: 'absolute',
-    left: '16.5vw',
-    height: '52vw',
-    width: '1vw',
+    left: '16.5vh',
+    height: '52vh',
+    width: '1vh',
     background: '#8A8A8A',
     zIndex: '2'
   },
   rightVerticalLine: {
     position: 'absolute',
-    left: '33.5vw',
-    height: '52vw',
-    width: '1vw',
+    left: '33.5vh',
+    height: '52vh',
+    width: '1vh',
     background: '#8A8A8A',
     zIndex: '2'
   },
   topHorizontalLine: {
     position: 'absolute',
-    height: '1vw',
-    width: '52vw',
-    top: '16.5vw',
+    height: '1vh',
+    width: '52vh',
+    top: '16.5vh',
     background: '#8A8A8A',
     zIndex: '2'
   },
   botHorizontalLine: {
     position: 'absolute',
-    height: '1vw',
-    width: '52vw',
-    top: '34vw',
+    height: '1vh',
+    width: '52vh',
+    top: '34vh',
     background: '#8A8A8A',
     zIndex: '2'
   },
@@ -54,10 +53,10 @@ const styles = {
     border: 'none'
   },
   square: {
-    height: '16vw',
-    width: '16vw',
+    height: '16vh',
+    width: '16vh',
     display: 'inline-block',
-    margin: '.5vw',
+    margin: '.5vh',
     position: 'relative',
   },
   centeredImage: {
@@ -75,7 +74,8 @@ const styles = {
       margin: 'auto',
       position: 'absolute',
       width: '50%',
-      textAlign: 'center'
+      textAlign: 'center',
+      top: '2em'
     }
   },
   modalButton: {
@@ -83,8 +83,91 @@ const styles = {
     border: 'none',
     position: 'relative',
     display: 'block',
-    top: '15vw',
+    top: '30vh',
     margin: 'auto'
+  },
+  topWin: {
+    position: 'absolute',
+    height: '1vh',
+    width: '52vh',
+    top: '8.25vh',
+    background: 'red',
+    zIndex: '3'
+  },
+  midWin: {
+    position: 'absolute',
+    height: '1vh',
+    width: '52vh',
+    top: '24.75vh',
+    background: 'red',
+    zIndex: '3'
+  },
+  botWin: {
+    position: 'absolute',
+    height: '1vh',
+    width: '52vh',
+    top: '41.25vh',
+    background: 'red',
+    zIndex: '3'
+  },
+  leftWin: {
+    position: 'absolute',
+    left: '8.25vh',
+    height: '52vh',
+    width: '1vh',
+    background: 'red',
+    zIndex: '3'
+  },
+  centerWin: {
+    position: 'absolute',
+    left: '24.75vh',
+    height: '52vh',
+    width: '1vh',
+    background: 'red',
+    zIndex: '3'
+  },
+  rightWin: {
+    position: 'absolute',
+    left: '41.25vh',
+    height: '52vh',
+    width: '1vh',
+    background: 'red',
+    zIndex: '3'
+  },
+  botLeftWin: {
+    position: 'absolute',
+    left: '23vh',
+    height: '55vh',
+    width: '1vh',
+    background: 'red',
+    zIndex: '3',
+    WebkitTransform: 'rotate(45deg)'
+  },
+  topLeftWin: {
+    position: 'absolute',
+    left: '27vh',
+    height: '55vh',
+    width: '1vh',
+    background: 'red',
+    zIndex: '3',
+    WebkitTransform: 'rotate(315deg)'
+  },
+  turingTest: {
+    position: 'absolute',
+    margin: 'auto',
+    top: '30vh',
+    left: 0,
+    bottom: 0,
+    right: 0,
+    textAlign: 'center'
+  },
+  turingButton: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    position: 'relative',
+    margin: 'auto',
+    paddingLeft: '3em',
+    paddingRight: '3em'
   }
 }
 

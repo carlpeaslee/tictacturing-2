@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <Grid>
         <Row>
-          <Col md={1} mdOffset={11} style={styles.gitHubBar}>
+          <Col  lg={1} md={1} lgPush={11} mdPush={11} style={styles.gitHubBar}>
             <GitHubButton/>
           </Col>
         </Row>
