@@ -35,7 +35,7 @@
 * ~~present the user with the turing choice~~
 
 ### v.1.0
-* [Wireframe](https://collaborate.uxpin.com/c80f72eeabb8122153a5f34d797c83c5fae2a34b#/pages/56777247  "v.1.0 Wireframe")
+* ~~[Wireframe](https://collaborate.uxpin.com/c80f72eeabb8122153a5f34d797c83c5fae2a34b#/pages/56777247  "v.1.0 Wireframe")~~
 
 
 
