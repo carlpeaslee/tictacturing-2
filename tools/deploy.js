@@ -14,12 +14,12 @@ import fetch from './lib/fetch';
 // TODO: Update deployment URL
 // For more information visit http://gitolite.com/deploy.html
 
-//https://secret-ocean-16931.herokuapp.com/ | https://git.heroku.com/secret-ocean-16931.git
+//https://tictacturing.herokuapp.com/ | https://git.heroku.com/tictacturing.git
 
 const getRemote = (slot) => ({
   name: slot || 'production',
-  url: `https://git.heroku.com/secret-ocean-16931.git`,
-  website: `https://secret-ocean-16931.herokuapp.com/`,
+  url: `https://git.heroku.com/tictacturing.git`,
+  website: `https://tictacturing.herokuapp.com/`,
 });
 
 /**
