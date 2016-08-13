@@ -6,8 +6,37 @@ export const RECEIVE_OPPONENT_MOVE = 'RECEIVE_OPPONENT_MOVE'
 export const END_GAME = 'END_GAME'
 export const TURING_TEST = 'TURING_TEST'
 
+export const FETCH_SHIT = 'FETCH_SHIT'
+export const PRESS_FBUTTON = 'PRESS_FBUTTON'
+export const RECEIVE_SHIT = 'RECEIVE_SHIT'
+
 
 /* Action creators */
+
+export function pressFbutton(shit) {
+  return {
+    type: PRESS_FBUTTON,
+    shit
+  }
+}
+
+export function fetchShit(shit) {
+  return {
+    type: FETCH_SHIT,
+    shit
+  }
+}
+
+export function receiveShit(shit, json) {
+  return {
+    type: RECEIVE_SHIT,
+    shit,
+    data: json.data.children.map(child => child.data),
+    receivedAt: Date.now()
+  }
+}
+
+
 
 export function makeTicTacMove(position, mark) {
   return {

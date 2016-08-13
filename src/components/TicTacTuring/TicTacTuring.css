@@ -57,7 +57,7 @@
   z-index: 2
 }
 
-topWin {
+.topWin {
   position: absolute;
   height: 1vh;
   width: 52vh;
@@ -239,7 +239,7 @@ topWin {
   position: relative;
   margin: auto;
   padding-left: 3em;
-  paddin-right: 3em;
+  padding-right: 3em;
 }
 .gitHubBar {
   top: 0;
@@ -249,4 +249,12 @@ topWin {
   background: white;
   color: black;
   border: none;
+}
+
+.asyncBar {
+  position: fixed;
+  z-index: 10;
+  background-color: lightblue;
+  color: green;
+  left: 75%;
 }

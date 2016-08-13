@@ -12,6 +12,7 @@ import EndGameMarkers from './EndGameMarkers'
 import AlertBar from './AlertBar'
 import Prompts from './Prompts'
 import GitHubButton from './GitHubButton'
+import AsyncBar from './AsyncBar'
 import {gameStateManager} from './gameLogic'
 
 class TicTacTuring extends Component {
@@ -36,7 +37,7 @@ class TicTacTuring extends Component {
   }
   render() {
     return (
-      <div className={s.root}>  
+      <div className={s.root}>
         <Row>
           <Col  lg={1} md={1} lgPush={11} mdPush={11} className={s.githubBar}>
             <GitHubButton/>
@@ -63,6 +64,10 @@ class TicTacTuring extends Component {
               gameState={this.props.gameState}
             />
           </Col>
+        </Row>
+        <Row>
+          <AsyncBar
+          />
         </Row>
       </div>
     )

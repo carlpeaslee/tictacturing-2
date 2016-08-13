@@ -17,5 +17,10 @@ export const INITIAL_STATE = {
   endGameState: {
     winningPlayer: '',
     locationOfWin: ''
+  },
+  async: {
+    isFetching: true,
+    didInvalidate: false,
+    items: []
   }
 }
