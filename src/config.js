@@ -10,9 +10,17 @@
 /* eslint-disable max-len */
 
 export const port = process.env.PORT || 3000;
-export const host = process.env.WEBSITE_HOSTNAME || `localhost:${port}`;
+export const host = process.env.WEBSITE_HOSTNAME || `localhost:${port}`
 
-export const databaseUrl = process.env.DATABASE_URL || 'sqlite:database.sqlite';
+export const databaseUrl = process.env.DATABASE_URL || 'localhost'
+export const databaseUser = process.env.DATABASE_USER || 'carl'
+export const databasePw = process.env.DATABASE_PW || ''
+export const databaseName = process.env.DATABASE_NAME || 'tictacturing'
+export const databaseSsl = process.env.DATABASE_SSL || false
+
+
+
+
 
 export const analytics = {
 

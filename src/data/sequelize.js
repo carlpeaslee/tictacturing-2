@@ -8,7 +8,9 @@
  */
 
 import Sequelize from 'sequelize';
-import { databaseUrl } from '../config';
+// import { databaseUrl } from '../config';
+
+const databaseUrl = 'sqlite:database.sqlite'
 
 const sequelize = new Sequelize(databaseUrl, {
   define: {
