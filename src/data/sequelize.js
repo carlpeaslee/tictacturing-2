@@ -8,14 +8,32 @@
  */
 
 import Sequelize from 'sequelize';
-// import { databaseUrl } from '../config';
+import {databaseHost, databaseUser, databasePw, databaseName, databaseSsl } from '../config';
 
-const databaseUrl = 'sqlite:database.sqlite'
+// const databaseUrl = 'sqlite:database.sqlite'
 
-const sequelize = new Sequelize(databaseUrl, {
+const sequelize = new Sequelize(databaseName, databaseUser, databasePw, {
+  host: databaseHost,
+  dialect: 'postgres',
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  },
   define: {
     freezeTableName: true,
-  },
+  }
 });
+
+sequelize
+  .authenticate()
+  .then(function(err) {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(function (err) {
+    console.log('Unable to connect to the database:', err);
+});
+
+
 
 export default sequelize;

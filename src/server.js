@@ -22,7 +22,7 @@ import { ErrorPage } from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
 import UniversalRouter from 'universal-router';
 import PrettyError from 'pretty-error';
-// import passport from './core/passport';
+import passport from './core/passport';
 import models from './data/models';
 import schema from './data/schema';
 import routes from './routes';
@@ -37,55 +37,39 @@ const app = express();
 
 // import  from 'pg'
 
-import pg, {Client} from 'pg'
-
-import Pool from 'pg-pool'
-
-// import url from 'url'
+// import pg, {Client} from 'pg'
 //
-// const params = url.parse(databaseUrl);
-// const dbAuth = params.auth.split(':');
+// import Pool from 'pg-pool'
 //
 // const config = {
-//   user: dbAuth[0],
-//   password: dbAuth[1],
-//   host: params.hostname,
-//   port: params.port,
-//   database: params.pathname.split('/')[1],
-//   ssl: true
-// };
+//     user: databaseUser,
+//     database: databaseName,
+//     host: databaseHost,
+//     port: 5432,
+//     password: databasePw,
+//     ssl: databaseSsl
+// }
 //
-// const pool = new Pool(config);
-
-const config = {
-    user: databaseUser,
-    database: databaseName,
-    host: databaseHost,
-    port: 5432,
-    password: databasePw,
-    ssl: databaseSsl
-}
-
-const pool = new Pool(config)
-
-
-pool.connect(function(err, client, release) {
-  if (err) throw err;
-  console.log('Connected to postgres! Getting schemas...');
-  client.query('CREATE TABLE IF NOT EXISTS games (' +
-    'id SERIAL PRIMARY KEY,' +
-    'play_date varchar(80),' +
-    'gamelog text ARRAY[8]' +
-    ');', function(err, result) {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log(result)
-      }
-      release()
-    }
-  )
-});
+// const pool = new Pool(config)
+//
+//
+// pool.connect(function(err, client, release) {
+//   if (err) throw err;
+//   console.log('Connected to postgres! Getting schemas...');
+//   client.query('CREATE TABLE IF NOT EXISTS games (' +
+//     'id SERIAL PRIMARY KEY,' +
+//     'play_date varchar(80),' +
+//     'gamelog text ARRAY[8]' +
+//     ');', function(err, result) {
+//       if (err) {
+//         console.log(err)
+//       } else {
+//         console.log(result)
+//       }
+//       release()
+//     }
+//   )
+// });
 
 
 
@@ -115,20 +99,20 @@ app.use(expressJwt({
   getToken: req => req.cookies.id_token,
 }));
 
-// app.use(passport.initialize());
-//
-// app.get('/login/facebook',
-//   passport.authenticate('facebook', { scope: ['email', 'user_location'], session: false })
-// );
-// app.get('/login/facebook/return',
-//   passport.authenticate('facebook', { failureRedirect: '/login', session: false }),
-//   (req, res) => {
-//     const expiresIn = 60 * 60 * 24 * 180; // 180 days
-//     const token = jwt.sign(req.user, auth.jwt.secret, { expiresIn });
-//     res.cookie('id_token', token, { maxAge: 1000 * expiresIn, httpOnly: true });
-//     res.redirect('/');
-//   }
-// );
+app.use(passport.initialize());
+
+app.get('/login/facebook',
+  passport.authenticate('facebook', { scope: ['email', 'user_location'], session: false })
+);
+app.get('/login/facebook/return',
+  passport.authenticate('facebook', { failureRedirect: '/login', session: false }),
+  (req, res) => {
+    const expiresIn = 60 * 60 * 24 * 180; // 180 days
+    const token = jwt.sign(req.user, auth.jwt.secret, { expiresIn });
+    res.cookie('id_token', token, { maxAge: 1000 * expiresIn, httpOnly: true });
+    res.redirect('/');
+  }
+);
 
 //
 // Register API middleware
@@ -236,7 +220,9 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 // Launch the server
 // -----------------------------------------------------------------------------
 /* eslint-disable no-console */
-app.listen(port, () => {
-  console.log(`The server is running at http://localhost:${port}/`);
+models.sync().catch(err => console.error(err.stack)).then(() => {
+  app.listen(port, () => {
+    console.log(`The server is running at http://localhost:${port}/`);
+  });
 });
 /* eslint-enable no-console */
