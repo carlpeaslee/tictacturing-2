@@ -5,7 +5,7 @@ import {Row, Col} from 'react-bootstrap'
 import s from './TicTacTuring.css'
 
 import { connect } from 'react-redux'
-import {makeTicTacMove, readyAction, startGame, turingTest, endGame, receiveOpponentMove} from '../../actions/tictacturing'
+import {makeTicTacMove, readyAction, startGame, turingTest, endGame, receiveOpponentMove, fetchShit} from '../../actions/tictacturing'
 import TicTacToeBoard from './TicTacToeBoard'
 import BoardDisplay from './BoardDisplay'
 import EndGameMarkers from './EndGameMarkers'
@@ -25,7 +25,8 @@ class TicTacTuring extends Component {
     locationOfWin: PropTypes.string.isRequired,
     turingTestClick: PropTypes.func.isRequired,
     dispatchEnd: PropTypes.func.isRequired,
-    dispatchOpponentMove: PropTypes.func.isRequired
+    dispatchOpponentMove: PropTypes.func.isRequired,
+    dispatchFetchShit: PropTypes.func.isRequired
   }
   componentDidUpdate () {
     const gameState = this.props.gameState
@@ -67,6 +68,7 @@ class TicTacTuring extends Component {
         </Row>
         <Row>
           <AsyncBar
+          dispatchFetchShit={this.props.dispatchFetchShit}
           />
         </Row>
       </div>
@@ -102,6 +104,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     dispatchOpponentMove: (move) => {
       dispatch(receiveOpponentMove(move))
+    },
+    dispatchFetchShit: () => {
+      dispatch(fetchShit())
     }
   }
 }

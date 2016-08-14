@@ -1,8 +1,25 @@
-import {TICTAC_MOVE, READY, START_GAME, RECEIVE_OPPONENT_MOVE, TURING_TEST, END_GAME} from '../actions/tictacturing'
+import {TICTAC_MOVE, READY, START_GAME, RECEIVE_OPPONENT_MOVE, TURING_TEST, END_GAME, REQUEST_SHIT, RECEIVE_SHIT} from '../actions/tictacturing'
 import {INITIAL_STATE} from '../constants'
 
 function tictacturing(state = {...INITIAL_STATE}, action) {
   switch (action.type) {
+    case REQUEST_SHIT: {
+      return {
+        ...state,
+        async: {
+          isFetching: true
+        }
+      }
+    }
+    case RECEIVE_SHIT: {
+      return {
+        ...state,
+        async: {
+          isFetching: false,
+          data: action.data
+        }
+      }
+    }
     case TICTAC_MOVE: {
       let newBoard = {
         ...state.tictacboard

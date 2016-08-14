@@ -21,6 +21,6 @@ export const INITIAL_STATE = {
   async: {
     isFetching: true,
     didInvalidate: false,
-    items: []
+    data: []
   }
 }

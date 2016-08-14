@@ -3,13 +3,18 @@ import s from './TicTacTuring.css'
 import {Row, Col} from 'react-bootstrap'
 
 
-function AlertBar(props){
+function AsyncBar(props){
   return (
     <Row>
       <Col>
         <div className={s.asyncBar}>
           <h3>This is the async bar</h3>
-          <button>
+          <button
+            onClick={() => {
+              console.log('clicked')
+              props.dispatchFetchShit()
+            }}
+          >
             Do a sync stuff
           </button>
         </div>
@@ -18,4 +23,4 @@ function AlertBar(props){
   )
 }
 
-export default AlertBar
+export default AsyncBar
