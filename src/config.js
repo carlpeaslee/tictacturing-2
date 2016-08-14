@@ -12,7 +12,7 @@
 export const port = process.env.PORT || 3000;
 export const host = process.env.WEBSITE_HOSTNAME || `localhost:${port}`
 
-export const databaseUrl = process.env.DATABASE_URL || 'localhost'
+export const databaseHost = process.env.DATABASE_HOST || 'localhost'
 export const databaseUser = process.env.DATABASE_USER || 'carl'
 export const databasePw = process.env.DATABASE_PW || ''
 export const databaseName = process.env.DATABASE_NAME || 'tictacturing'

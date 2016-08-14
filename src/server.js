@@ -30,21 +30,37 @@ import createHistory from './core/createHistory';
 import assets from './assets'; // eslint-disable-line import/no-unresolved
 import configureStore from './store/configureStore';
 import { setRuntimeVariable } from './actions/runtime';
-import { port, auth, databaseUrl, databaseUser, databasePw, databaseName, databaseSsl } from './config';
+import { port, auth, databaseHost, databaseUser, databasePw, databaseName, databaseSsl } from './config';
 
 const app = express();
 
 
 // import  from 'pg'
 
-import pg from 'pg'
+import pg, {Client} from 'pg'
 
 import Pool from 'pg-pool'
 
+// import url from 'url'
+//
+// const params = url.parse(databaseUrl);
+// const dbAuth = params.auth.split(':');
+//
+// const config = {
+//   user: dbAuth[0],
+//   password: dbAuth[1],
+//   host: params.hostname,
+//   port: params.port,
+//   database: params.pathname.split('/')[1],
+//   ssl: true
+// };
+//
+// const pool = new Pool(config);
 
 const config = {
     user: databaseUser,
     database: databaseName,
+    host: databaseHost,
     port: 5432,
     password: databasePw,
     ssl: databaseSsl
@@ -53,7 +69,7 @@ const config = {
 const pool = new Pool(config)
 
 
-pool.connect( function(err, client, release) {
+pool.connect(function(err, client, release) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
   client.query('CREATE TABLE IF NOT EXISTS games (' +
