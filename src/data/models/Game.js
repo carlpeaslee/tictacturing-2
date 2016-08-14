@@ -10,35 +10,20 @@
 import DataType from 'sequelize';
 import Model from '../sequelize';
 
-const GameLog = Model.define('GameLog', {
+const Game = Model.define('game', {
 
-  gameLogId: {
+  gameId: {
     type: DataType.UUID,
     defaultValue: DataType.UUIDV1,
     primaryKey: true,
-  },
-
-  playerXId: {
-    type: DataType.UUID,
-    validate: { isEmail: true },
-  },
-
-  playerOId: {
-    type: DataType.UUID,
-    validate: { isEmail: true },
-  },
-
-  emailConfirmed: {
-    type: DataType.BOOLEAN,
-    defaultValue: false,
-  },
+  }
 
 }, {
 
   indexes: [
-    { fields: ['email'] },
+    { fields: ['gameId'] },
   ],
 
 });
 
-export default User;
+export default Game;

@@ -13,6 +13,11 @@ import UserLogin from './UserLogin';
 import UserClaim from './UserClaim';
 import UserProfile from './UserProfile';
 
+import Game from './Game.js'
+import Player from './Player.js'
+import Move from './Move.js'
+
+
 User.hasMany(UserLogin, {
   foreignKey: 'userId',
   as: 'logins',
@@ -34,9 +39,21 @@ User.hasOne(UserProfile, {
   onDelete: 'cascade',
 });
 
+Player.hasMany(Move, {
+  foreignKey: 'playerId',
+  as: 'move'
+})
+
+Game.hasMany(Move, {
+  foreignKey: 'moveId',
+  as: 'game'
+})
+
+
+
 function sync(...args) {
   return sequelize.sync(...args);
 }
 
 export default { sync };
-export { User, UserLogin, UserClaim, UserProfile };
+export { User, UserLogin, UserClaim, UserProfile, Game, Player, Move };
