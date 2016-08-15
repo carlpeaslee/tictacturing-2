@@ -15,13 +15,13 @@ import Player from './Player'
 const Move = Model.define('move', {
 
   moveId: {
-    type: DataType.UUID,
+    type: DataType.STRING,
     defaultValue: DataType.UUIDV1,
-    primaryKey: true,
+    primaryKey: true
   },
 
   gameId: {
-    type: DataType.UUID
+    type: DataType.STRING
     // references: {
     //   model: Game,
     //   key: Game.gameId
@@ -29,7 +29,7 @@ const Move = Model.define('move', {
   },
 
   playerId: {
-    type: DataType.UUID
+    type: DataType.STRING
     // references: {
     //   model: Player,
     //   key: Player.playerId
@@ -37,24 +37,12 @@ const Move = Model.define('move', {
   },
 
   moveLocation: {
-    type: DataType.ENUM(
-        'TOP_LEFT',
-        'TOP_CENTER',
-        'TOP_RIGHT',
-        'MID_LEFT',
-        'MID_CENTER',
-        'MID_RIGHT',
-        'BOT_LEFT',
-        'BOT_CENTER',
-        'BOT_RIGHT')
-  },
-
+    type: DataType.STRING
+  }
 }, {
-
   indexes: [
     { fields: ['moveId'] },
   ],
-
 });
 
 export default Move;

@@ -39,15 +39,15 @@ User.hasOne(UserProfile, {
   onDelete: 'cascade',
 });
 
-Player.hasMany(Move, {
-  foreignKey: 'playerId',
-  as: 'move'
-})
-
-Game.hasMany(Move, {
-  foreignKey: 'moveId',
-  as: 'game'
-})
+// Player.hasMany(Move, {
+//   foreignKey: 'playerId',
+//   as: 'player'
+// })
+//
+// Game.hasMany(Move, {
+//   foreignKey: 'gameId',
+//   as: 'game'
+// })
 
 
 

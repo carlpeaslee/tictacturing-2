@@ -8,23 +8,60 @@
  */
 
 import {
-  GraphQLSchema as Schema,
-  GraphQLObjectType as ObjectType,
+  GraphQLSchema,
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLNonNull,
+  GraphQLID
 } from 'graphql';
 
 import me from './queries/me';
 import content from './queries/content';
 import news from './queries/news';
+import addMoveToDB from './mutations/addMoveToDB'
 
-const schema = new Schema({
-  query: new ObjectType({
-    name: 'Query',
-    fields: {
+const RootQuery = new GraphQLObjectType({
+  name: 'RootQuery',
+  fields: {
       me,
       content,
       news,
-    },
-  }),
+  }
+})
+
+let inMemoryStore = {}
+
+const RootMutation = new GraphQLObjectType({
+  name: 'RootMutation',
+  description: 'The root mutation',
+  fields: {
+    addMove: {
+      type: GraphQLString,
+      args: {
+        moveId: {
+          type: GraphQLString
+        },
+        playerId: {
+          type: GraphQLString
+        },
+        gameId: {
+          type: GraphQLString
+        },
+        moveLocation: {
+          type: GraphQLString
+        }
+      },
+      resolve(source, args) {
+        addMoveToDB(args.gameId, args.playerId, args.moveLocation)
+        return source
+      }
+    }
+  }
+})
+
+const schema = new GraphQLSchema({
+  query: RootQuery,
+  mutation: RootMutation
 });
 
 export default schema;

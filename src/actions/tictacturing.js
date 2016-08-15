@@ -15,21 +15,22 @@ export const RECEIVE_SHIT = 'RECEIVE_SHIT'
 
 /* Action creators */
 
-const query = JSON.stringify({
-  query: '{news{title}}',
-})
 
-const options = {
-  method: 'POST',
-  headers: {
-    Accept: 'application/json',
-    'content-type': 'application/json',
-  },
-  body: query,
-  credentials: 'include'
-}
 
 export function fetchShit(shit){
+  const query = JSON.stringify({
+    query: '{news{title}}',
+  })
+
+  const options = {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+    },
+    body: query,
+    credentials: 'include'
+  }
   console.log('fetchShit ran')
   return function (dispatch) {
     dispatch(requestShit(shit))
@@ -43,13 +44,6 @@ export function fetchShit(shit){
   }
 }
 
-
-export function pressFbutton(shit) {
-  return {
-    type: PRESS_FBUTTON,
-    shit
-  }
-}
 
 export function requestShit(shit) {
   console.log('request shit ran')
@@ -70,7 +64,32 @@ export function receiveShit(shit, json) {
   }
 }
 
+export function asyncTicTacMove(position, player) {
+  const mutation = JSON.stringify({
+    query: 'mutation{addMove(playerId:"' + player +'", moveLocation:"' + position + '")}',
+  })
 
+  const options = {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+    },
+    body: mutation,
+    credentials: 'include'
+  }
+  return function (dispatch) {
+    dispatch(makeTicTacMove(position, player))
+
+    return fetch('/graphql', options).then((res) => {
+      return res.json()
+    }).then((data) =>{
+      console.log(data)
+      //dispatch(receiveTicTacMoveConfirmation(data))
+    })
+  }
+
+}
 
 export function makeTicTacMove(position, mark) {
   return {

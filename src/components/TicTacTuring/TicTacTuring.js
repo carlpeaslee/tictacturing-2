@@ -5,7 +5,7 @@ import {Row, Col} from 'react-bootstrap'
 import s from './TicTacTuring.css'
 
 import { connect } from 'react-redux'
-import {makeTicTacMove, readyAction, startGame, turingTest, endGame, receiveOpponentMove, fetchShit} from '../../actions/tictacturing'
+import {makeTicTacMove, readyAction, startGame, turingTest, endGame, receiveOpponentMove, fetchShit, asyncTicTacMove} from '../../actions/tictacturing'
 import TicTacToeBoard from './TicTacToeBoard'
 import BoardDisplay from './BoardDisplay'
 import EndGameMarkers from './EndGameMarkers'
@@ -88,7 +88,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSquareClick: (position, mark) => {
-      dispatch(makeTicTacMove(position, mark))
+      dispatch(asyncTicTacMove(position, mark))
     },
     onReadyClick: () => {
       dispatch(readyAction())
